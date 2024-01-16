@@ -53,10 +53,6 @@ export const images = () => (app.gulp.src(app.path.src.images)
   )
   .pipe(app.gulp.dest(app.isGitPages ? app.path.docs.images : app.path.build.images))
 
-  // copy svg icons
-  .pipe(app.gulp.src(app.path.src.svg))
-  .pipe(app.gulp.dest(app.isGitPages ? app.path.docs.images : app.path.build.images))
-
   // output everything into server
   .pipe(app.plugins.browserSync.stream())
 )
