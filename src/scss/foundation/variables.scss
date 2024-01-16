@@ -6,11 +6,29 @@
 $rem: 10px;
 
 // Breakpoints for include media mixin
+//* First desktop breakpoints
 $breakpoints: (
-  "phone": 480px,
-  "tablet": 768px,
-  "desktop": 980px,
-  "widescreen": 1200px
+  "xxl": 1920px,
+  "xl": 1440px,
+  "lg": 1280px,
+  "md": 992px,
+  "sm": 768px,
+  "xs": 480px
+) !default;
+
+//* First mobile breakpoints
+// $breakpoints-first-mobile: (
+//   "xs": 0px,
+//   "sm": 768px,
+//   "md": 1024px,
+//   "lg": 1440px
+// );
+
+//* Extra points for small phones
+$extra-breakpoints: (
+  "xxs": 380px,
+  "3xs": 360px,
+  "4xs": 320px
 );
 
 // Keywords for include media mixin
@@ -21,33 +39,20 @@ $media-expressions: (
   "landscape": "(orientation: landscape)",
   "portrait": "(orientation: portrait)",
   "retina2x": (
-    "(-webkit-min-device-pixel-ratio: 1.5)",
-    "(min-resolution: 144dpi)"
+    "(-webkit-min-device-pixel-ratio: 2)",
+    "(min-resolution: 192dpi)",
+    "(min-resolution: 2dppx)"
   ),
   "retina3x": (
-    "(-webkit-min-device-pixel-ratio: 2.5)",
-    "(min-resolution: 240dpi)"
-  ),
-  "hover": (
-    "(hover: hover)" "(pointer: fine)",
-    "(-ms-high-contrast: none)",
-    "(-ms-high-contrast: active)"
-  ),
-  "theme-light": "prefers-color-scheme: light",
-  "theme-dark": "prefers-color-scheme: dark",
-  "ie": (
-    "(-ms-high-contrast: none)",
-    "(-ms-high-contrast: active)"
+    "(-webkit-min-device-pixel-ratio: 3)",
+    "(min-resolution: 350dpi)",
+    "(min-resolution: 3dppx)"
   )
-);
+) !default;
+
+$gutter-width: 30px !default;
 
 :root {
-  // Breakpoints
-  --phone: #{map-get($breakpoints, "phone")};
-  --tablet: #{map-get($breakpoints, "tablet")};
-  --desktop: #{map-get($breakpoints, "desktop")};
-  --widescreen: #{map-get($breakpoints, "widescreen")};
-
   // Colors
   --color-white: #fff;
   --color-black: #000;
@@ -55,7 +60,7 @@ $media-expressions: (
   --color-blue: #39f;
 
   // Fonts
-  --font-sans-serif: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  --font-sans-serif: Poppins, Arial, "Helvetica Neue", Helvetica, sans-serif;
   --font-serif: "Times New Roman", Times, Baskerville, Georgia, serif;
 
   // Body base

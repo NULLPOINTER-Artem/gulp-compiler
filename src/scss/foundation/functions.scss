@@ -82,3 +82,15 @@
   );
   @return map-merge($map, $new);
 }
+
+@function get-max($map) {
+  $list: ();
+
+  // Loop through each item in the map
+  @each $map-key, $map-val in $map {
+    $list: append($list, $map-val, comma);
+  }
+
+  // Get the largest number from our list
+  @return max($list...);
+}

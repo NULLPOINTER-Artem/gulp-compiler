@@ -23,3 +23,9 @@ To build a project for deployment, etc., run this command
 ```sh
 $ npm run build
 ```
+
+To build a project for git-pages, run this command
+
+```sh
+$ npm run deploy:git
+```
