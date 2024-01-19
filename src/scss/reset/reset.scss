@@ -22,6 +22,11 @@ ul[class] {
   list-style: none;
 }
 
+li,
+ul {
+  list-style: none;
+}
+
 body,
 ul,
 ol,
@@ -41,7 +46,9 @@ body {
   font-family: var(--base-font-family);
   font-size: var(--base-font-size);
   line-height: var(--base-line-height);
+  font-weight: 400;
   min-width: var(--base-min-width);
+  position: relative;
 }
 
 // adaptive images

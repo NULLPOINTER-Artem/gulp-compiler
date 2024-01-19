@@ -1,20 +1,9 @@
-- const pageTitle = 'Home';
-include ./components/mixins.pug
+extends layouts/default.pug
 
-doctype html
+block head
+  - const namePage = 'index';
+  - const pageTitle = 'Main Page';
 
-html(lang='en')
-  include ./components/head.pug
-
-  body
-    include ./components/header.pug
-
-    .container
-      h1.heading Hello World!
-      +icon('user')
-      +icon('gear')
-      +icon('arrow')
-      +icon('icons--arrow-2')
-      img(src='@images/user-face.png', alt='user-face')
-
-    include ./components/scripts.pug
+block content
+  p.
+    This is main page, welcome!
