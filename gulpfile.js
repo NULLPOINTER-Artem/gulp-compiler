@@ -22,6 +22,7 @@ import { zip } from './gulp/tasks/zip.js';
 import { ftp } from './gulp/tasks/ftp.js';
 import { buildSvgSprite } from './gulp/tasks/svg-sprite.js';
 import { copySprite } from './gulp/tasks/copy-sprite.js';
+import { copyRobots } from './gulp/tasks/copyRobots.js';
 
 function watcher() {
   gulp.watch(path.watch.html, html); // html -> gulp.series(html, ftp) -> auto-deploy to the FTP server
@@ -35,11 +36,12 @@ const fonts = gulp.series(otfToTtf, ttfToWoff, fontStyles);
 const mainTasks = gulp.series(fonts, gulp.parallel(html, scss, js, gulp.series(images, gulp.series(buildSvgSprite, copySprite))));
 
 const dev = gulp.series(clean, mainTasks, gulp.parallel(watcher, server));
-export const build = gulp.series(clean, mainTasks);
-export const deployZip = gulp.series(clean, mainTasks, zip);
-export const deployFtp = gulp.series(clean, mainTasks, ftp);
+export const build = gulp.series(clean, mainTasks, copyRobots);
+export const deployZip = gulp.series(build, zip);
+export const deployFtp = gulp.series(build, ftp);
 export {
   buildSvgSprite,
+  copyRobots,
   fonts
 };
 
