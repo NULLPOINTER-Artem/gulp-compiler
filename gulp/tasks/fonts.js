@@ -34,6 +34,7 @@ const CSS_FONT_STYLE = {
   oblique: 'oblique',
 };
 
+//! Fix bug with gulp-fonter library, dest and file name is incorrect!
 export const otfToTtf = () => (app.gulp.src(`${app.path.srcFolder}/fonts/*.otf`)
   .pipe(app.plugins.plumber(
     app.plugins.notify.onError({
