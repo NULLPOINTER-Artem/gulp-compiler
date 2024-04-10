@@ -13,6 +13,16 @@
   }
 }
 
+%hideScrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+
+  &::-webkit-scrollbar {
+    /*Chrome, Safari, Edge*/
+    display: none;
+  }
+}
+
 .clearfix {
   @extend %clearfix;
 }
