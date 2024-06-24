@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 export const outsideClick = (element, className) => {
   const listenerCb = (event) => {
     const lastMouseDownWasOutside = !$(event.target).closest(element).length;
